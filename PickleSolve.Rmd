@@ -1,0 +1,79 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+```{r}
+#setup
+library(readr)
+library(readxl)
+PickleR <- read_excel("PickleR.xlsx")
+PickleR <- as.data.frame(PickleR)
+throw <- c('L','R')
+Bat <- c('L','R','S')
+Position <- c('C','1B','2B','3B','SS','LF','CF','RF','RP','SP')
+Division <- c('AL West', 'AL Central', 'AL East', 'NL East', 'NL Central', 'NL West')
+age <- 19:43
+team <- PickleR$Team
+```
+
+
+```{r}
+#Yellow Division input
+#YDIV <- 
+
+
+#Yellow Age
+#YAGE <- 26 
+#age <- (YAGE-2):(YAGE+2)
+
+
+```
+
+
+
+
+```{r}
+ if (YDIV == 'AL West') 
+    results <- c('AL East', 'AL Central','NL West')
+  if (YDIV == 'AL Central') 
+    results <- c('AL East', 'NL Central','AL West')
+  if (YDIV == 'AL East') 
+    results <- c('AL West', 'AL Central','NL East')
+  if (YDIV == 'NL West') 
+    results <- c('NL East', 'NL Central','AL West')
+  if (YDIV == 'NL Central') 
+    results <- c('NL East', 'AL Central','NL West')
+  if (YDIV == 'NL East') 
+    results <- c('AL East', 'NL Central','NL West')
+Division <- results
+```
+
+
+```{r}
+#Green areas
+#Position <-
+#throw <- 'R'
+#Bat <- 'L'
+#age <- 
+#Division <- 'AL West'
+#team <- 
+```
+
+
+
+```{r}
+PickleR <- PickleR[PickleR$THW %in% throw,]
+PickleR <- PickleR[PickleR$POS %in% Position,]
+PickleR <- PickleR[PickleR$Division %in% Division,]
+PickleR <- PickleR[PickleR$BAT %in% Bat,]
+PickleR <- PickleR[PickleR$Age %in% age,]
+
+head(PickleR,5)
+```
+
+
+
+
+
